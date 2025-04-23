@@ -1,6 +1,6 @@
 # IDs Above Head
 
-This script displays player IDs above their heads in GTA V when you press the **Z key**. Below you will find instructions for installation and configuration.
+This script displays player IDs above their heads in a FiveM server when you press the **Z key**. Below you will find instructions for installation and configuration.
 
 ## Installation
 
