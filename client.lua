@@ -1,11 +1,11 @@
--- Configuratie
+-- Configuration
 local config = {
-    toggleKey = 20 -- Standaard Z-toets (keycode 20)
+    toggleKey = 20 -- Default Z key (keycode 20)
 }
 
 local disPlayerNames = 20
 local playerDistances = {}
-local showIDs = false -- Variabele om bij te houden of ID's getoond moeten worden
+local showIDs = false -- Variable to track whether IDs should be displayed
 
 local function DrawText3D(position, text, r, g, b)
     local onScreen, _x, _y = World3dToScreen2d(position.x, position.y, position.z + 1)
@@ -38,7 +38,7 @@ end
 Citizen.CreateThread(function()
     Wait(500)
     while true do
-        if showIDs then -- Alleen ID's tonen als showIDs true is
+        if showIDs then -- Only display IDs if showIDs is true
             for _, id in ipairs(GetActivePlayers()) do
                 local targetPed = GetPlayerPed(id)
                 local targetPedCords = GetEntityCoords(targetPed)
@@ -52,10 +52,10 @@ Citizen.CreateThread(function()
                 end
             end
 
-            -- Toon ook het ID van de speler zelf
+            -- Also display the player's own ID
             local playerPed = PlayerPedId()
             local playerCoords = GetEntityCoords(playerPed)
-            DrawText3D(playerCoords, GetPlayerServerId(PlayerId()), 255, 255, 255) -- Maak de kleur wit
+            DrawText3D(playerCoords, GetPlayerServerId(PlayerId()), 255, 255, 255) -- Set the color to white
         end
         Citizen.Wait(0)
     end
@@ -77,13 +77,13 @@ Citizen.CreateThread(function()
     end
 end)
 
--- Controleer op de ingestelde toets
+-- Check for the configured key
 Citizen.CreateThread(function()
     while true do
-        if IsControlPressed(0, config.toggleKey) then -- Gebruik de toets uit de configuratie
-            showIDs = true -- Zet tonen van ID's aan
+        if IsControlPressed(0, config.toggleKey) then -- Use the key from the configuration
+            showIDs = true -- Enable displaying IDs
         else
-            showIDs = false -- Zet tonen van ID's uit
+            showIDs = false -- Disable displaying IDs
         end
         Citizen.Wait(0)
     end
