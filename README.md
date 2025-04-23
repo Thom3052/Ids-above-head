@@ -14,7 +14,7 @@ This script displays player IDs above their heads in GTA V when you press the **
 
 The configuration of the script is located in the `client.lua` file. Below are the main settings explained:
 
-### 1. **Toggle Key**á
+### 1. **Toggle Key**
 The key used to toggle the display of IDs is set in the `config` table. By default, this is the **Z key** (keycode `20`).
 
 ```lua
